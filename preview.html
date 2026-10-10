@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FSS Design Kit</title>
+  <link rel="icon" type="image/png" href="assets/fss-icon.png" />
+  <!-- As linhas @tailwind do fss.css são ignoradas pelo navegador: funciona sem build. -->
+  <link rel="stylesheet" href="css/fss.css" />
+  <style>
+    .swatch { display:flex; align-items:center; gap:10px; font-size:12px; }
+    .swatch i { width:28px; height:28px; border-radius:6px; border:1px solid var(--border); display:block; flex-shrink:0; }
+    .swatch code { color: var(--text-dim); font-size: 11px; }
+    .stack > * + * { margin-top: 20px; }
+    .row { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+  </style>
+</head>
+<body>
+<div class="fss-layout">
+  <aside class="fss-sidebar" id="sb">
+    <button class="fss-sidebar-close" onclick="sb.classList.remove('open')" aria-label="Fechar menu">✕</button>
+    <div style="padding:14px 11px 20px">
+      <div style="position:relative;width:30px;height:30px;margin-bottom:14px">
+        <div style="width:30px;height:30px;background:var(--shell-surface);border-radius:7px;display:flex;align-items:center;justify-content:center">
+          <img src="assets/fss-icon.png" alt="" style="width:20px;height:20px;object-fit:contain">
+        </div>
+        <span style="position:absolute;left:23px;bottom:-2px;width:7px;height:7px;border-radius:50%;background:var(--status-success);border:2px solid var(--shell-bg);box-sizing:content-box"></span>
+      </div>
+      <div style="font-size:16px;font-weight:700;color:#fff;line-height:1.2">Full Sales System</div>
+      <div style="font-size:10px;color:var(--shell-text-dim);margin-top:5px">voce@fullsalessystem.com</div>
+    </div>
+    <nav style="flex:1">
+      <a class="fss-nav-item active">▦ <span>Visão Geral</span></a>
+      <a class="fss-nav-item">▤ <span>Análise</span></a>
+      <a class="fss-nav-item">▶ <span>Canais &amp; Vídeos</span></a>
+      <a class="fss-nav-item">✦ <span>Otimizações</span></a>
+      <a class="fss-nav-item disabled">▢ <span>Desabilitado</span></a>
+    </nav>
+    <nav>
+      <a class="fss-nav-item">⚙ <span>Configurações</span></a>
+      <a class="fss-nav-item">⎋ <span>Sair</span></a>
+    </nav>
+  </aside>
+
+  <div class="fss-main-area">
+    <header class="fss-topbar">
+      <button class="fss-menu-btn" onclick="sb.classList.add('open')" aria-label="Abrir menu">☰</button>
+      <span style="font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.10em;font-weight:600">FSS</span>
+      <span style="color:var(--border);font-size:12px">›</span>
+      <span style="font-size:12px;color:var(--text-muted);font-weight:500">Design Kit</span>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:8px">
+        <span style="width:7px;height:7px;border-radius:50%;background:var(--status-success)"></span>
+        <span style="font-size:11px;color:var(--text-dim);font-weight:500">Sync OK</span>
+      </div>
+    </header>
+
+    <main class="fss-content stack">
+      <div class="fss-section-header fss-page-header" style="display:flex;align-items:flex-end;gap:12px">
+        <div style="flex:1">
+          <div class="fss-eyebrow" style="margin-bottom:6px">Visão geral</div>
+          <h1 class="fss-h1" style="margin:0">Resultados do período</h1>
+          <p style="font-size:12px;color:var(--text-dim);margin:4px 0 0">Últimos 28 dias · comparado ao período anterior</p>
+        </div>
+        <button class="fss-btn-primary">＋ Nova ação</button>
+      </div>
+
+      <div class="fss-alert-error">Coleta incompleta em <b>Canal X</b>: sem dado em 03/10, 04/10. Views do período estão subnotificadas.</div>
+
+      <div class="fss-kpi-grid">
+        <div class="fss-stat-card"><div class="fss-stat-label">Novos inscritos</div><div class="fss-stat-value" style="color:var(--status-success)">+1,2K</div><span style="font-size:10px;font-weight:700;color:var(--status-success);margin-top:4px;display:inline-block">+12,4% vs período anterior</span></div>
+        <div class="fss-stat-card"><div class="fss-stat-label">Views</div><div class="fss-stat-value">84,3K</div><span style="font-size:10px;font-weight:700;color:var(--fss-red);margin-top:4px;display:inline-block">-3,1% vs período anterior</span></div>
+        <div class="fss-stat-card"><div class="fss-stat-label">CTR</div><div class="fss-stat-value">5,8%</div></div>
+        <div class="fss-stat-card"><div class="fss-stat-label">Impressões</div><div class="fss-stat-value">1,4M</div></div>
+        <div class="fss-stat-card"><div class="fss-stat-label">Retenção</div><div class="fss-stat-value">27,2%</div></div>
+        <div class="fss-stat-card" style="opacity:.55"><div class="fss-stat-label">Leads</div><div class="fss-stat-value" style="color:var(--text-dim)">—</div><span style="font-size:10px;font-weight:700;color:var(--text-dim);margin-top:4px;display:inline-block">em breve</span></div>
+      </div>
+
+      <div class="fss-card" style="padding:16px 18px">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;flex-wrap:wrap">
+          <div class="fss-label">Evolução</div>
+          <div class="row" style="gap:4px">
+            <button class="fss-btn-secondary active" style="font-size:10px;padding:4px 9px">Views</button>
+            <button class="fss-btn-secondary" style="font-size:10px;padding:4px 9px">Impressões</button>
+            <button class="fss-btn-secondary" style="font-size:10px;padding:4px 9px">CTR</button>
+          </div>
+        </div>
+        <svg viewBox="0 0 600 200" width="100%" height="200" preserveAspectRatio="none">
+          <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="5%" stop-color="#E11A38" stop-opacity=".25"/><stop offset="95%" stop-color="#E11A38" stop-opacity="0"/></linearGradient></defs>
+          <g stroke="#E5E5E5" stroke-dasharray="3 3"><line x1="0" y1="40" x2="600" y2="40"/><line x1="0" y1="90" x2="600" y2="90"/><line x1="0" y1="140" x2="600" y2="140"/></g>
+          <polyline fill="none" stroke="#5A6485" stroke-width="1.5" stroke-dasharray="4 3" points="0,130 75,120 150,135 225,110 300,118 375,100 450,112 525,95 600,105"/>
+          <polygon fill="url(#g)" points="0,120 75,100 150,110 225,70 300,85 375,55 450,65 525,40 600,50 600,200 0,200"/>
+          <polyline fill="none" stroke="#E11A38" stroke-width="2" points="0,120 75,100 150,110 225,70 300,85 375,55 450,65 525,40 600,50"/>
+        </svg>
+      </div>
+
+      <div class="fss-grid-2" style="gap:20px">
+        <div class="fss-card" style="padding:16px 18px">
+          <div class="fss-label" style="margin-bottom:12px">Tabela</div>
+          <div class="fss-table-wrap">
+            <table class="fss-table" style="width:100%;border-collapse:collapse;text-align:left">
+              <thead><tr><th>Vídeo</th><th>Views</th><th>CTR</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>#104 · Como vender mais</td><td>12,4K</td><td>6,1%</td><td><span class="fss-badge">Público</span></td></tr>
+                <tr><td>#103 · Gestão comercial</td><td>8,9K</td><td>4,7%</td><td><span class="fss-badge">Público</span></td></tr>
+                <tr><td>#102 · Funil de vendas</td><td>—</td><td>—</td><td><span class="fss-badge">Agendado</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="fss-card" style="padding:16px 18px">
+          <div class="fss-label" style="margin-bottom:12px">Formulário</div>
+          <label class="fss-label" style="display:block;margin-bottom:6px">E-mail</label>
+          <input class="fss-input" style="width:100%;margin-bottom:14px" placeholder="nome@empresa.com">
+          <label class="fss-label" style="display:block;margin-bottom:6px">Canal</label>
+          <select class="fss-select" style="width:100%;margin-bottom:18px"><option>Full Sales</option><option>Matuta</option></select>
+          <div class="row">
+            <button class="fss-btn-primary">Salvar</button>
+            <button class="fss-btn-secondary">Cancelar</button>
+            <button class="fss-btn-primary" disabled>Desabilitado</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="fss-card" style="padding:16px 18px">
+        <div class="fss-label" style="margin-bottom:12px">Alertas, badges e avatares</div>
+        <div class="stack" style="--gap:10px">
+          <div class="fss-alert-success">Relatório gerado com sucesso.</div>
+          <div class="fss-alert-warning">Retenção de vídeo novo ainda não está fechada.</div>
+          <div class="fss-alert-error">Não foi possível falar com o servidor.</div>
+          <div class="row">
+            <span class="fss-badge">Badge</span>
+            <span class="fss-avatar" style="background:#E11A38">F</span>
+            <span class="fss-avatar" style="background:#285193">M</span>
+            <span class="fss-avatar" style="background:#1E9E5A">Y</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fss-card" style="padding:16px 18px">
+        <div class="fss-label" style="margin-bottom:12px">Paleta</div>
+        <div class="fss-grid-3" style="gap:12px">
+          <div class="swatch"><i style="background:#E11A38"></i><div>fss-red<br><code>#E11A38</code></div></div>
+          <div class="swatch"><i style="background:#1E9E5A"></i><div>success<br><code>#1E9E5A</code></div></div>
+          <div class="swatch"><i style="background:#E5A100"></i><div>warning<br><code>#E5A100</code></div></div>
+          <div class="swatch"><i style="background:#101011"></i><div>shell<br><code>#101011</code></div></div>
+          <div class="swatch"><i style="background:#1F1F1F"></i><div>shell-surface<br><code>#1F1F1F</code></div></div>
+          <div class="swatch"><i style="background:#F0F0F0"></i><div>page<br><code>#F0F0F0</code></div></div>
+          <div class="swatch"><i style="background:#3B3B3B"></i><div>ink<br><code>#3B3B3B</code></div></div>
+          <div class="swatch"><i style="background:#716E74"></i><div>ink-dim<br><code>#716E74</code></div></div>
+          <div class="swatch"><i style="background:#D4D4D4"></i><div>line<br><code>#D4D4D4</code></div></div>
+        </div>
+        <hr class="fss-keyline" style="margin:16px 0">
+        <div class="fss-label" style="margin-bottom:8px">Categórica (gráficos)</div>
+        <div class="row">
+          <i style="width:22px;height:22px;border-radius:4px;background:#285193"></i>
+          <i style="width:22px;height:22px;border-radius:4px;background:#E11A38"></i>
+          <i style="width:22px;height:22px;border-radius:4px;background:#1E9E5A"></i>
+          <i style="width:22px;height:22px;border-radius:4px;background:#E5A100"></i>
+          <i style="width:22px;height:22px;border-radius:4px;background:#7B2D8B"></i>
+          <i style="width:22px;height:22px;border-radius:4px;background:#0097A7"></i>
+          <i style="width:22px;height:22px;border-radius:4px;background:#5A6485"></i>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+</body>
+</html>
